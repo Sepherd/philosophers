@@ -19,11 +19,7 @@ int	threads_init(t_data *data)
 	i = 0;
 	data->dead = 0;
 	data->start = get_time();
-	if (pthread_mutex_init(&data->print, NULL) != 0)
-		return (0);
-	if (pthread_create(&data->control, NULL, &c_process, (void *) data) != 0)
-		return (0);
-	usleep(1000);
+	pthread_mutex_init(&data->print, NULL);
 	while (i < data->philo_nb)
 	{
 		data->thread = i;
@@ -32,6 +28,9 @@ int	threads_init(t_data *data)
 		i++;
 		usleep(1000);
 	}
+	if (pthread_create(&data->control, NULL, &c_process, (void *) data) != 0)
+		return (0);
+	usleep(1000);
 	if (!threads_join(data))
 		return (0);
 	return (1);
@@ -44,8 +43,11 @@ int	threads_join(t_data *data)
 	i = 0;
 	if (pthread_join(data->control, NULL) != 0)
 		return (0);
-	while (i++ < data->philo_nb)
+	while (i < data->philo_nb)
+	{
 		if (pthread_join(data->p[i].t, NULL) != 0)
 			return (0);
+		i++;
+	}
 	return (1);
 }

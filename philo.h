@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:09:37 by arecce            #+#    #+#             */
-/*   Updated: 2023/02/06 12:27:01 by arecce           ###   ########.fr       */
+/*   Updated: 2023/02/09 17:26:02 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void			think(t_data *data, int i);
 int				death(t_data *data, int *i);
 // void			drop_forks(t_data *data, int i);
 void			*routine(void *args);
-void			dining(t_data *data, int i);
+int				dining(t_data *data, int i);
 void			*c_process(void *args);
 void			close_philo(t_data *data);
 

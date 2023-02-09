@@ -17,9 +17,12 @@ int	set_the_table(t_data *data)
 	int	i;
 
 	i = 0;
-	while (i++ < data->philo_nb)
+	while (i < data->philo_nb)
+	{
 		if (pthread_mutex_init(&data->p[i].fork, NULL) != 0)
 			return (0);
+		i++;
+	}
 	return (1);
 }
 
@@ -28,6 +31,9 @@ void	clear_away(t_data *data)
 	int	i;
 
 	i = 0;
-	while (i++ < data->philo_nb)
+	while (i < data->philo_nb)
+	{
 		pthread_mutex_destroy(&data->p[i].fork);
+		i++;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 12:12:47 by arecce            #+#    #+#             */
-/*   Updated: 2023/02/08 16:36:30 by arecce           ###   ########.fr       */
+/*   Updated: 2023/02/09 17:26:43 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,6 @@ long long	get_time(void)
 		printf("ERROR!\n");
 	return ((tv.tv_sec * (long long)1000) + (tv.tv_usec / 1000));
 }
-
-// long long	now_ms(t_data *data)
-// {
-// 	long long	now;
-
-// 	now = get_time() - data->start;
-// 	return (now);
-// }
 
 long long	now_ms(long long now)
 {

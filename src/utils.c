@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 16:58:29 by arecce            #+#    #+#             */
-/*   Updated: 2023/02/08 19:44:00 by arecce           ###   ########.fr       */
+/*   Updated: 2023/02/09 14:31:32 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,13 @@ void	print_msg(t_data *data, char *msg, int id)
 {
 	long long	now;
 
-	pthread_mutex_lock(&data->print);
-	now = now_ms(data->start);
-	printf("%llu %d %s", now, id + 1, msg);
-	pthread_mutex_unlock(&data->print);
-	return ;
+	if (data->dead == 0)
+	{
+		pthread_mutex_lock(&data->print);
+		now = now_ms(data->start);
+		printf("%llu %d %s", now, id + 1, msg);
+		pthread_mutex_unlock(&data->print);
+	}
 }
 
 void	close_philo(t_data *data)

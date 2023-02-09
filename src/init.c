@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 17:19:15 by arecce            #+#    #+#             */
-/*   Updated: 2023/02/06 12:26:29 by arecce           ###   ########.fr       */
+/*   Updated: 2023/02/09 16:26:59 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,16 @@ int	philos_init(t_data *data)
 {
 	int	i;
 
-	data->p = malloc(sizeof(t_philo) * (data->philo_nb + 1));
+	data->p = malloc(sizeof(t_philo) * data->philo_nb);
 	if (!data->p)
 		return (0);
 	i = 0;
-	while (i++ < data->philo_nb)
+	while (i < data->philo_nb)
 	{
 		data->p[i].id = i + 1;
 		data->p[i].eat_count = 0;
 		data->p[i].to_die_ms = 0;
+		i++;
 	}
 	data->thread = 0;
 	return (1);
