@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:09:37 by arecce            #+#    #+#             */
-/*   Updated: 2023/02/09 17:26:02 by arecce           ###   ########.fr       */
+/*   Updated: 2023/02/10 19:39:00 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <pthread.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <fcntl.h>
+# include <stdarg.h>
 
 /*******************
  	  MESSAGES
@@ -66,7 +68,7 @@ int				threads_init(t_data *data);
 int				threads_join(t_data *data);
 long long		get_time(void);
 long long		now_ms(long long now);
-void			time_to_do(long long time);
+// void			time_to_do(useconds_t time);
 void			eat(t_data *data, int i);
 void			p_sleep(t_data *data, int i);
 void			think(t_data *data, int i);
@@ -76,5 +78,6 @@ void			*routine(void *args);
 int				dining(t_data *data, int i);
 void			*c_process(void *args);
 void			close_philo(t_data *data);
+void			ft_usleep(useconds_t time);
 
 #endif

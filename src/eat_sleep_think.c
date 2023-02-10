@@ -23,7 +23,7 @@ void	eat(t_data *data, int i)
 	print_msg(data, FORK, i);
 	print_msg(data, EAT, i);
 	data->p[i].to_die_ms = get_time();
-	time_to_do(data->eat_ms);
+	ft_usleep(data->eat_ms);
 	pthread_mutex_unlock(&data->p[i].fork);
 	if (i == data->philo_nb - 1)
 		pthread_mutex_unlock(&data->p[0].fork);
@@ -35,7 +35,7 @@ void	eat(t_data *data, int i)
 void	p_sleep(t_data *data, int i)
 {
 	print_msg(data, SLEEP, i);
-	time_to_do(data->sleep_ms);
+	ft_usleep(data->sleep_ms);
 }
 
 void	think(t_data *data, int i)

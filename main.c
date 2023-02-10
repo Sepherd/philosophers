@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:09:50 by arecce            #+#    #+#             */
-/*   Updated: 2023/02/08 19:33:58 by arecce           ###   ########.fr       */
+/*   Updated: 2023/02/10 19:35:44 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	lonely_philo(t_data *data)
 {
 	data->start = get_time();
 	print_msg(data, FORK, 0);
-	time_to_do(data->die_ms);
+	ft_usleep(data->die_ms);
 	print_msg(data, DEATH, 0);
 }
 
