@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 16:58:29 by arecce            #+#    #+#             */
-/*   Updated: 2023/02/10 19:26:46 by arecce           ###   ########.fr       */
+/*   Updated: 2023/02/11 15:26:11 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ unsigned int	ft_atoi(char *str)
 
 	i = 0;
 	num = 0;
+	if (str[0] == '0')
+		return (0);
 	while ((str[i] >= '0') && (str[i] <= '9'))
 	{
 		num = num * 10 + (str[i] - '0');
 		i++;
 	}
-	if (num <= 0)
-		error_check();
 	return (num);
 }
 

@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:09:50 by arecce            #+#    #+#             */
-/*   Updated: 2023/02/10 19:35:44 by arecce           ###   ########.fr       */
+/*   Updated: 2023/02/11 15:21:48 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,16 @@ int	main(int ac, char **av)
 
 	if (ac < 5 || ac > 6)
 		return (0);
-	arg_init(&data, av);
-	if (!start_philo(&data))
+	if (ft_check_input(av) && check_positive(av))
 	{
-		clear_away(&data);
-		free(data.p);
-		return (0);
+		arg_init(&data, av);
+		if (!start_philo(&data))
+		{
+			clear_away(&data);
+			free(data.p);
+			return (0);
+		}
+		close_philo(&data);
 	}
-	close_philo(&data);
 	return (0);
 }

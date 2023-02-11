@@ -6,7 +6,7 @@
 /*   By: arecce <arecce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:09:37 by arecce            #+#    #+#             */
-/*   Updated: 2023/02/10 19:39:00 by arecce           ###   ########.fr       */
+/*   Updated: 2023/02/11 15:20:57 by arecce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ typedef struct s_data
 	pthread_mutex_t	print;
 }				t_data;
 
-void			error_check(void);
+int				error_check(void);
 unsigned int	ft_atoi(char *str);
 int				ft_isdigit(int c);
 int				ft_check_input(char **str);
